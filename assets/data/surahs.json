@@ -1,0 +1,1028 @@
+[
+  {
+    "number": 1,
+    "nameEnglish": "Al-Fatiha",
+    "nameArabic": "الفاتحة",
+    "nameBengali": "সূরা ফাতিহা",
+    "ayahCount": 7,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 2,
+    "nameEnglish": "Al-Baqarah",
+    "nameArabic": "البقرة",
+    "nameBengali": "সূরা বাকারা",
+    "ayahCount": 286,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 3,
+    "nameEnglish": "Aal-E-Imran",
+    "nameArabic": "آل عمران",
+    "nameBengali": "সূরা আলে ইমরান",
+    "ayahCount": 200,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 4,
+    "nameEnglish": "An-Nisa",
+    "nameArabic": "النساء",
+    "nameBengali": "সূরা নিসা",
+    "ayahCount": 176,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 5,
+    "nameEnglish": "Al-Ma'idah",
+    "nameArabic": "المائدة",
+    "nameBengali": "সূরা মাইদা",
+    "ayahCount": 120,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 6,
+    "nameEnglish": "Al-An'am",
+    "nameArabic": "الأنعام",
+    "nameBengali": "সূরা আনআম",
+    "ayahCount": 165,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 7,
+    "nameEnglish": "Al-A'raf",
+    "nameArabic": "الأعراف",
+    "nameBengali": "সূরা আরাফ",
+    "ayahCount": 206,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 8,
+    "nameEnglish": "Al-Anfal",
+    "nameArabic": "الأنفال",
+    "nameBengali": "সূরা আনফাল",
+    "ayahCount": 75,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 9,
+    "nameEnglish": "At-Tawbah",
+    "nameArabic": "التوبة",
+    "nameBengali": "সূরা তাওবা",
+    "ayahCount": 129,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 10,
+    "nameEnglish": "Yunus",
+    "nameArabic": "يونس",
+    "nameBengali": "সূরা ইউনুস",
+    "ayahCount": 109,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 11,
+    "nameEnglish": "Hud",
+    "nameArabic": "هود",
+    "nameBengali": "সূরা হুদ",
+    "ayahCount": 123,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 12,
+    "nameEnglish": "Yusuf",
+    "nameArabic": "يوسف",
+    "nameBengali": "সূরা ইউসুফ",
+    "ayahCount": 111,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 13,
+    "nameEnglish": "Ar-Ra'd",
+    "nameArabic": "الرعد",
+    "nameBengali": "সূরা রাদ",
+    "ayahCount": 43,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 14,
+    "nameEnglish": "Ibrahim",
+    "nameArabic": "ابراهيم",
+    "nameBengali": "সূরা ইব্রাহীম",
+    "ayahCount": 52,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 15,
+    "nameEnglish": "Al-Hijr",
+    "nameArabic": "الحجر",
+    "nameBengali": "সূরা হিজর",
+    "ayahCount": 99,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 16,
+    "nameEnglish": "An-Nahl",
+    "nameArabic": "النحل",
+    "nameBengali": "সূরা নাহল",
+    "ayahCount": 128,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 17,
+    "nameEnglish": "Al-Isra",
+    "nameArabic": "الإسراء",
+    "nameBengali": "সূরা ইসরা",
+    "ayahCount": 111,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 18,
+    "nameEnglish": "Al-Kahf",
+    "nameArabic": "الكهف",
+    "nameBengali": "সূরা কাহফ",
+    "ayahCount": 110,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 19,
+    "nameEnglish": "Maryam",
+    "nameArabic": "مريم",
+    "nameBengali": "সূরা মারইয়াম",
+    "ayahCount": 98,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 20,
+    "nameEnglish": "Ta-Ha",
+    "nameArabic": "طه",
+    "nameBengali": "সূরা ত্বহা",
+    "ayahCount": 135,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 21,
+    "nameEnglish": "Al-Anbiya",
+    "nameArabic": "الأنبياء",
+    "nameBengali": "সূরা আম্বিয়া",
+    "ayahCount": 112,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 22,
+    "nameEnglish": "Al-Hajj",
+    "nameArabic": "الحج",
+    "nameBengali": "সূরা হাজ্জ",
+    "ayahCount": 78,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 23,
+    "nameEnglish": "Al-Mu'minun",
+    "nameArabic": "المؤمنون",
+    "nameBengali": "সূরা মুমিনুন",
+    "ayahCount": 118,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 24,
+    "nameEnglish": "An-Nur",
+    "nameArabic": "النور",
+    "nameBengali": "সূরা নূর",
+    "ayahCount": 64,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 25,
+    "nameEnglish": "Al-Furqan",
+    "nameArabic": "الفرقان",
+    "nameBengali": "সূরা ফুরকান",
+    "ayahCount": 77,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 26,
+    "nameEnglish": "Ash-Shu'ara",
+    "nameArabic": "الشعراء",
+    "nameBengali": "সূরা শুআরা",
+    "ayahCount": 227,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 27,
+    "nameEnglish": "An-Naml",
+    "nameArabic": "النمل",
+    "nameBengali": "সূরা নামল",
+    "ayahCount": 93,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 28,
+    "nameEnglish": "Al-Qasas",
+    "nameArabic": "القصص",
+    "nameBengali": "সূরা কাসাস",
+    "ayahCount": 88,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 29,
+    "nameEnglish": "Al-Ankabut",
+    "nameArabic": "العنكبوت",
+    "nameBengali": "সূরা আনকাবূত",
+    "ayahCount": 69,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 30,
+    "nameEnglish": "Ar-Rum",
+    "nameArabic": "الروم",
+    "nameBengali": "সূরা রূম",
+    "ayahCount": 60,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 31,
+    "nameEnglish": "Luqman",
+    "nameArabic": "لقمان",
+    "nameBengali": "সূরা লুকমান",
+    "ayahCount": 34,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 32,
+    "nameEnglish": "As-Sajdah",
+    "nameArabic": "السجدة",
+    "nameBengali": "সূরা সাজদাহ",
+    "ayahCount": 30,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 33,
+    "nameEnglish": "Al-Ahzab",
+    "nameArabic": "الأحزاب",
+    "nameBengali": "সূরা আহযাব",
+    "ayahCount": 73,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 34,
+    "nameEnglish": "Saba",
+    "nameArabic": "سبأ",
+    "nameBengali": "সূরা সাবা",
+    "ayahCount": 54,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 35,
+    "nameEnglish": "Fatir",
+    "nameArabic": "فاطر",
+    "nameBengali": "সূরা ফাতির",
+    "ayahCount": 45,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 36,
+    "nameEnglish": "Ya-Sin",
+    "nameArabic": "يس",
+    "nameBengali": "সূরা ইয়াসীন",
+    "ayahCount": 83,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 37,
+    "nameEnglish": "As-Saffat",
+    "nameArabic": "الصافات",
+    "nameBengali": "সূরা সাফফাত",
+    "ayahCount": 182,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 38,
+    "nameEnglish": "Sad",
+    "nameArabic": "ص",
+    "nameBengali": "সূরা সাদ",
+    "ayahCount": 88,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 39,
+    "nameEnglish": "Az-Zumar",
+    "nameArabic": "الزمر",
+    "nameBengali": "সূরা যুমার",
+    "ayahCount": 75,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 40,
+    "nameEnglish": "Ghafir",
+    "nameArabic": "غافر",
+    "nameBengali": "সূরা গাফির",
+    "ayahCount": 85,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 41,
+    "nameEnglish": "Fussilat",
+    "nameArabic": "فصلت",
+    "nameBengali": "সূরা ফুসসিলাত",
+    "ayahCount": 54,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 42,
+    "nameEnglish": "Ash-Shura",
+    "nameArabic": "الشورى",
+    "nameBengali": "সূরা শূরা",
+    "ayahCount": 53,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 43,
+    "nameEnglish": "Az-Zukhruf",
+    "nameArabic": "الزخرف",
+    "nameBengali": "সূরা যুখরুফ",
+    "ayahCount": 89,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 44,
+    "nameEnglish": "Ad-Dukhan",
+    "nameArabic": "الدخان",
+    "nameBengali": "সূরা দুখান",
+    "ayahCount": 59,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 45,
+    "nameEnglish": "Al-Jathiyah",
+    "nameArabic": "الجاثية",
+    "nameBengali": "সূরা জাসিয়া",
+    "ayahCount": 37,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 46,
+    "nameEnglish": "Al-Ahqaf",
+    "nameArabic": "الأحقاف",
+    "nameBengali": "সূরা আহকাফ",
+    "ayahCount": 35,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 47,
+    "nameEnglish": "Muhammad",
+    "nameArabic": "محمد",
+    "nameBengali": "সূরা মুহাম্মাদ",
+    "ayahCount": 38,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 48,
+    "nameEnglish": "Al-Fath",
+    "nameArabic": "الفتح",
+    "nameBengali": "সূরা ফাতহ",
+    "ayahCount": 29,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 49,
+    "nameEnglish": "Al-Hujurat",
+    "nameArabic": "الحجرات",
+    "nameBengali": "সূরা হুজুরাত",
+    "ayahCount": 18,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 50,
+    "nameEnglish": "Qaf",
+    "nameArabic": "ق",
+    "nameBengali": "সূরা ক্বাফ",
+    "ayahCount": 45,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 51,
+    "nameEnglish": "Adh-Dhariyat",
+    "nameArabic": "الذاريات",
+    "nameBengali": "সূরা যারিয়াত",
+    "ayahCount": 60,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 52,
+    "nameEnglish": "At-Tur",
+    "nameArabic": "الطور",
+    "nameBengali": "সূরা তূর",
+    "ayahCount": 49,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 53,
+    "nameEnglish": "An-Najm",
+    "nameArabic": "النجم",
+    "nameBengali": "সূরা নাজম",
+    "ayahCount": 62,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 54,
+    "nameEnglish": "Al-Qamar",
+    "nameArabic": "القمر",
+    "nameBengali": "সূরা কামার",
+    "ayahCount": 55,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 55,
+    "nameEnglish": "Ar-Rahman",
+    "nameArabic": "الرحمن",
+    "nameBengali": "সূরা রহমান",
+    "ayahCount": 78,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 56,
+    "nameEnglish": "Al-Waqi'ah",
+    "nameArabic": "الواقعة",
+    "nameBengali": "সূরা ওয়াকিয়াহ",
+    "ayahCount": 96,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 57,
+    "nameEnglish": "Al-Hadid",
+    "nameArabic": "الحديد",
+    "nameBengali": "সূরা হাদীদ",
+    "ayahCount": 29,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 58,
+    "nameEnglish": "Al-Mujadila",
+    "nameArabic": "المجادلة",
+    "nameBengali": "সূরা মুজাদালাহ",
+    "ayahCount": 22,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 59,
+    "nameEnglish": "Al-Hashr",
+    "nameArabic": "الحشر",
+    "nameBengali": "সূরা হাশর",
+    "ayahCount": 24,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 60,
+    "nameEnglish": "Al-Mumtahanah",
+    "nameArabic": "الممتحنة",
+    "nameBengali": "সূরা মুমতাহিনা",
+    "ayahCount": 13,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 61,
+    "nameEnglish": "As-Saff",
+    "nameArabic": "الصف",
+    "nameBengali": "সূরা সাফ",
+    "ayahCount": 14,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 62,
+    "nameEnglish": "Al-Jumu'ah",
+    "nameArabic": "الجمعة",
+    "nameBengali": "সূরা জুমুআ",
+    "ayahCount": 11,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 63,
+    "nameEnglish": "Al-Munafiqun",
+    "nameArabic": "المنافقون",
+    "nameBengali": "সূরা মুনাফিকুন",
+    "ayahCount": 11,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 64,
+    "nameEnglish": "At-Taghabun",
+    "nameArabic": "التغابن",
+    "nameBengali": "সূরা তাগাবুন",
+    "ayahCount": 18,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 65,
+    "nameEnglish": "At-Talaq",
+    "nameArabic": "الطلاق",
+    "nameBengali": "সূরা তালাক",
+    "ayahCount": 12,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 66,
+    "nameEnglish": "At-Tahrim",
+    "nameArabic": "التحريم",
+    "nameBengali": "সূরা তাহরীম",
+    "ayahCount": 12,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 67,
+    "nameEnglish": "Al-Mulk",
+    "nameArabic": "الملك",
+    "nameBengali": "সূরা মুলক",
+    "ayahCount": 30,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 68,
+    "nameEnglish": "Al-Qalam",
+    "nameArabic": "القلم",
+    "nameBengali": "সূরা কলম",
+    "ayahCount": 52,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 69,
+    "nameEnglish": "Al-Haqqah",
+    "nameArabic": "الحاقة",
+    "nameBengali": "সূরা হাক্কাহ",
+    "ayahCount": 52,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 70,
+    "nameEnglish": "Al-Ma'arij",
+    "nameArabic": "المعارج",
+    "nameBengali": "সূরা মাআরিজ",
+    "ayahCount": 44,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 71,
+    "nameEnglish": "Nuh",
+    "nameArabic": "نوح",
+    "nameBengali": "সূরা নূহ",
+    "ayahCount": 28,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 72,
+    "nameEnglish": "Al-Jinn",
+    "nameArabic": "الجن",
+    "nameBengali": "সূরা জিন",
+    "ayahCount": 28,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 73,
+    "nameEnglish": "Al-Muzzammil",
+    "nameArabic": "المزمل",
+    "nameBengali": "সূরা মুযযাম্মিল",
+    "ayahCount": 20,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 74,
+    "nameEnglish": "Al-Muddaththir",
+    "nameArabic": "المدثر",
+    "nameBengali": "সূরা মুদ্দাসসির",
+    "ayahCount": 56,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 75,
+    "nameEnglish": "Al-Qiyamah",
+    "nameArabic": "القيامة",
+    "nameBengali": "সূরা কিয়ামাহ",
+    "ayahCount": 40,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 76,
+    "nameEnglish": "Al-Insan",
+    "nameArabic": "الإنسان",
+    "nameBengali": "সূরা ইনসান",
+    "ayahCount": 31,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 77,
+    "nameEnglish": "Al-Mursalat",
+    "nameArabic": "المرسلات",
+    "nameBengali": "সূরা মুরসালাত",
+    "ayahCount": 50,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 78,
+    "nameEnglish": "An-Naba",
+    "nameArabic": "النبأ",
+    "nameBengali": "সূরা নাবা",
+    "ayahCount": 40,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 79,
+    "nameEnglish": "An-Nazi'at",
+    "nameArabic": "النازعات",
+    "nameBengali": "সূরা নাযিআত",
+    "ayahCount": 46,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 80,
+    "nameEnglish": "Abasa",
+    "nameArabic": "عبس",
+    "nameBengali": "সূরা আবাসা",
+    "ayahCount": 42,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 81,
+    "nameEnglish": "At-Takwir",
+    "nameArabic": "التكوير",
+    "nameBengali": "সূরা তাকভীর",
+    "ayahCount": 29,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 82,
+    "nameEnglish": "Al-Infitar",
+    "nameArabic": "الإنفطار",
+    "nameBengali": "সূরা ইনফিতার",
+    "ayahCount": 19,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 83,
+    "nameEnglish": "Al-Mutaffifin",
+    "nameArabic": "المطففين",
+    "nameBengali": "সূরা মুতাফফিফীন",
+    "ayahCount": 36,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 84,
+    "nameEnglish": "Al-Inshiqaq",
+    "nameArabic": "الإنشقاق",
+    "nameBengali": "সূরা ইনশিকাক",
+    "ayahCount": 25,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 85,
+    "nameEnglish": "Al-Buruj",
+    "nameArabic": "البروج",
+    "nameBengali": "সূরা বুরূজ",
+    "ayahCount": 22,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 86,
+    "nameEnglish": "At-Tariq",
+    "nameArabic": "الطارق",
+    "nameBengali": "সূরা তারিক",
+    "ayahCount": 17,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 87,
+    "nameEnglish": "Al-A'la",
+    "nameArabic": "الأعلى",
+    "nameBengali": "সূরা আলা",
+    "ayahCount": 19,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 88,
+    "nameEnglish": "Al-Ghashiyah",
+    "nameArabic": "الغاشية",
+    "nameBengali": "সূরা গাশিয়াহ",
+    "ayahCount": 26,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 89,
+    "nameEnglish": "Al-Fajr",
+    "nameArabic": "الفجر",
+    "nameBengali": "সূরা ফজর",
+    "ayahCount": 30,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 90,
+    "nameEnglish": "Al-Balad",
+    "nameArabic": "البلد",
+    "nameBengali": "সূরা বালাদ",
+    "ayahCount": 20,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 91,
+    "nameEnglish": "Ash-Shams",
+    "nameArabic": "الشمس",
+    "nameBengali": "সূরা শামস",
+    "ayahCount": 15,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 92,
+    "nameEnglish": "Al-Layl",
+    "nameArabic": "الليل",
+    "nameBengali": "সূরা লাইল",
+    "ayahCount": 21,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 93,
+    "nameEnglish": "Ad-Duha",
+    "nameArabic": "الضحى",
+    "nameBengali": "সূরা দুহা",
+    "ayahCount": 11,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 94,
+    "nameEnglish": "Ash-Sharh",
+    "nameArabic": "الشرح",
+    "nameBengali": "সূরা ইনশিরাহ",
+    "ayahCount": 8,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 95,
+    "nameEnglish": "At-Tin",
+    "nameArabic": "التين",
+    "nameBengali": "সূরা তীন",
+    "ayahCount": 8,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 96,
+    "nameEnglish": "Al-Alaq",
+    "nameArabic": "العلق",
+    "nameBengali": "সূরা আলাক",
+    "ayahCount": 19,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 97,
+    "nameEnglish": "Al-Qadr",
+    "nameArabic": "القدر",
+    "nameBengali": "সূরা কদর",
+    "ayahCount": 5,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 98,
+    "nameEnglish": "Al-Bayyinah",
+    "nameArabic": "البينة",
+    "nameBengali": "সূরা বাইয়িনাহ",
+    "ayahCount": 8,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 99,
+    "nameEnglish": "Az-Zalzalah",
+    "nameArabic": "الزلزلة",
+    "nameBengali": "সূরা যিলযাল",
+    "ayahCount": 8,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 100,
+    "nameEnglish": "Al-Adiyat",
+    "nameArabic": "العاديات",
+    "nameBengali": "সূরা আদিয়াত",
+    "ayahCount": 11,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 101,
+    "nameEnglish": "Al-Qari'ah",
+    "nameArabic": "القارعة",
+    "nameBengali": "সূরা কারিয়াহ",
+    "ayahCount": 11,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 102,
+    "nameEnglish": "At-Takathur",
+    "nameArabic": "التكاثر",
+    "nameBengali": "সূরা তাকাসুর",
+    "ayahCount": 8,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 103,
+    "nameEnglish": "Al-Asr",
+    "nameArabic": "العصر",
+    "nameBengali": "সূরা আসর",
+    "ayahCount": 3,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 104,
+    "nameEnglish": "Al-Humazah",
+    "nameArabic": "الهمزة",
+    "nameBengali": "সূরা হুমাযাহ",
+    "ayahCount": 9,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 105,
+    "nameEnglish": "Al-Fil",
+    "nameArabic": "الفيل",
+    "nameBengali": "সূরা ফীল",
+    "ayahCount": 5,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 106,
+    "nameEnglish": "Quraysh",
+    "nameArabic": "قريش",
+    "nameBengali": "সূরা কুরাইশ",
+    "ayahCount": 4,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 107,
+    "nameEnglish": "Al-Ma'un",
+    "nameArabic": "الماعون",
+    "nameBengali": "সূরা মাঊন",
+    "ayahCount": 7,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 108,
+    "nameEnglish": "Al-Kawthar",
+    "nameArabic": "الكوثر",
+    "nameBengali": "সূরা কাউসার",
+    "ayahCount": 3,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 109,
+    "nameEnglish": "Al-Kafirun",
+    "nameArabic": "الكافرون",
+    "nameBengali": "সূরা কাফিরুন",
+    "ayahCount": 6,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 110,
+    "nameEnglish": "An-Nasr",
+    "nameArabic": "النصر",
+    "nameBengali": "সূরা নাসর",
+    "ayahCount": 3,
+    "revelationPlace": "Medinan",
+    "audioUrl": ""
+  },
+  {
+    "number": 111,
+    "nameEnglish": "Al-Masad",
+    "nameArabic": "المسد",
+    "nameBengali": "সূরা লাহাব",
+    "ayahCount": 5,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 112,
+    "nameEnglish": "Al-Ikhlas",
+    "nameArabic": "الإخلاص",
+    "nameBengali": "সূরা ইখলাস",
+    "ayahCount": 4,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 113,
+    "nameEnglish": "Al-Falaq",
+    "nameArabic": "الفلق",
+    "nameBengali": "সূরা ফালাক",
+    "ayahCount": 5,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  },
+  {
+    "number": 114,
+    "nameEnglish": "An-Nas",
+    "nameArabic": "الناس",
+    "nameBengali": "সূরা নাস",
+    "ayahCount": 6,
+    "revelationPlace": "Meccan",
+    "audioUrl": ""
+  }
+]

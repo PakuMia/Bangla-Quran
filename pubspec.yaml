@@ -1,0 +1,46 @@
+name: bangla_quran
+description: "Bangla Quran - Listen to Bengali translation recitation of the Holy Quran, organized by Surah and Para."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+
+  # State management
+  provider: ^6.1.2
+
+  # Audio playback with background/lock-screen controls
+  just_audio: ^0.9.40
+  just_audio_background: ^0.0.1-beta.13
+  audio_service: ^0.18.15
+  audio_session: ^0.1.21
+
+  # Remote data (audio links / playlist metadata)
+  firebase_core: ^2.32.0
+  cloud_firestore: ^4.17.5
+
+  # Local persistence
+  shared_preferences: ^2.2.3
+  path_provider: ^2.1.3
+
+  # Downloads
+  dio: ^5.4.3+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/data/surahs.json
+    - assets/data/paras.json

@@ -1,0 +1,1 @@
+enum PlaylistType { surah, para }
