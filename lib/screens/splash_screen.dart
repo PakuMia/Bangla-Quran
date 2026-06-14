@@ -22,9 +22,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _init() async {
     final library = context.read<LibraryService>();
-    await library.load();
-
     final player = context.read<PlayerProvider>();
+
+    await library.load();
     await player.restoreLastSession(library.all);
 
     if (!mounted) return;

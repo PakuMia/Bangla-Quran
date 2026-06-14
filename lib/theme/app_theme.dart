@@ -34,7 +34,7 @@ class AppTheme {
       sliderTheme: SliderThemeData(
         activeTrackColor: islamicGreen,
         thumbColor: islamicGreen,
-        inactiveTrackColor: islamicGreen.withOpacity(0.15),
+        inactiveTrackColor: islamicGreen.withValues(alpha: 0.15),
       ),
       iconTheme: const IconThemeData(color: islamicGreen),
       listTileTheme: const ListTileThemeData(iconColor: islamicGreen),

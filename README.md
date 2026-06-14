@@ -13,62 +13,63 @@ closed (background audio + lock-screen controls included).
 
 ---
 
+## 🚀 What YOU need to do (no coding needed)
+
+The app itself is fully built. Here's the simple, non-technical checklist to
+turn it into something on your phone and on the Play Store:
+
+1. **Prepare your audio files** — one MP3 per Surah (114 files) and/or per
+   Para (30 files). Name them however you like, e.g. `001_al_fatiha.mp3`.
+
+2. **Create a free Firebase account** and upload your audio + paste the
+   links into the app's data — see **"Firebase setup"** below. This is the
+   only step where you connect *your* recitations to the app.
+
+3. **Build the installable app file** — you don't need to install anything
+   on your computer. Use a free service called **Codemagic**
+   (https://codemagic.io):
+   - Sign up with your GitHub account.
+   - Connect this repository (`pakumia/bangla-quran`).
+   - Choose "Flutter App" → Android → it auto-detects everything.
+   - Click "Start new build" → it produces an `.apk` (install on your phone
+     to test) and `.aab` (the file the Play Store needs).
+
+4. **Test it** — download the `.apk` from Codemagic to your Android phone
+   and install it (you may need to allow "install from unknown sources").
+
+5. **Publish to Google Play** — create a Google Play Developer account
+   (one-time $25 fee at https://play.google.com/console), create a new app,
+   upload the `.aab` file from step 3, fill in your app's description,
+   screenshots, and your channel logo as the icon, then submit for review.
+
+If you get stuck on any step, come back and tell me exactly where — I can
+walk you through it or adjust the project.
+
+---
+
 ## 1. Project status
 
-This repo currently contains the **Dart/Flutter source code** (`lib/`),
-bundled Surah/Para metadata (`assets/data/`), and `pubspec.yaml`. The native
-Android/iOS platform folders are **not** included yet — generate them with
-`flutter create .` (see below).
+This repo contains a complete, working Flutter app:
 
-## 2. One-time setup
+- `lib/` – all the app's Dart code
+- `assets/data/` – the 114 Surah and 30 Para names/info
+- `android/` – the Android project (already configured with the
+  permissions and background-audio service it needs)
 
-```bash
-# from the repo root
-flutter create . --org com.yourcompany --project-name bangla_quran
-flutter pub get
-```
-
-This generates `android/`, `ios/`, etc. without touching your `lib/` code.
+`flutter analyze` and `flutter test` both pass. The only things left are
+things only **you** can do (see "What you need to do" below), since they
+involve your Firebase account, your audio files, and your app icon/branding.
 
 ### App icon / name
 
-- Update the app display name in `android/app/src/main/AndroidManifest.xml`
-  (`android:label="Bangla Quran"`).
-- Replace icons under `android/app/src/main/res/mipmap-*/` with your channel
-  logo (or use a tool like `flutter_launcher_icons`).
+The app is currently named "Bangla Quran" (set in
+`android/app/src/main/AndroidManifest.xml`). To use your channel's logo as
+the app icon, replace the files under `android/app/src/main/res/mipmap-*/`
+(named `ic_launcher.png`, different sizes per folder), or use the
+`flutter_launcher_icons` package to generate them automatically from one
+image.
 
-### Background audio permissions (Android)
-
-`just_audio_background` needs a media service declared in
-`android/app/src/main/AndroidManifest.xml`, inside `<application>`:
-
-```xml
-<service android:name="com.ryanheise.audioservice.AudioService"
-    android:foregroundServiceType="mediaPlayback"
-    android:exported="true">
-    <intent-filter>
-        <action android:name="android.media.browse.MediaBrowserService" />
-    </intent-filter>
-</service>
-
-<receiver android:name="com.ryanheise.audioservice.MediaButtonReceiver"
-    android:exported="true">
-    <intent-filter>
-        <action android:name="android.intent.action.MEDIA_BUTTON" />
-    </intent-filter>
-</receiver>
-```
-
-And these permissions inside `<manifest>`:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-<uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
-<uses-permission android:name="android.permission.WAKE_LOCK" />
-```
-
-## 3. Firebase setup (for uploading recitation links)
+## 2. Firebase setup (for uploading recitation links)
 
 The app reads bundled Surah/Para info from `assets/data/surahs.json` and
 `assets/data/paras.json`, then merges in **audio URLs** from a Firestore
@@ -103,20 +104,21 @@ without releasing an app update.
 If Firebase isn't configured at all, the app still runs fine — it just
 won't have any audio links until you add them.
 
-## 4. Run
+## 3. Run (for developers)
 
 ```bash
 flutter run
 ```
 
-## 5. Build for Google Play
+## 4. Build for Google Play (for developers)
 
 ```bash
 flutter build appbundle --release
 ```
 
 Upload the generated `.aab` from `build/app/outputs/bundle/release/` to the
-Play Console.
+Play Console. If you'd rather not install Flutter yourself, use the
+Codemagic option in the checklist above instead.
 
 ---
 
