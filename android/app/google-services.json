@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "348471586511",
+    "project_id": "banglaquran-audio",
+    "storage_bucket": "banglaquran-audio.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348471586511:android:04373e8e3b67f876fe11ba",
+        "android_client_info": {
+          "package_name": "com.banglaquran.bangla_quran"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDGID_ngwa4wJoVcFP7jg_we22tHd4wkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
