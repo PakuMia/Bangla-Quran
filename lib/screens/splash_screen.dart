@@ -1,3 +1,4 @@
+import 'package:audio_session/audio_session.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio_background/just_audio_background.dart';
@@ -44,6 +45,16 @@ class _SplashScreenState extends State<SplashScreen> {
     } catch (_) {
       // Firebase isn't configured yet (no google-services.json). The app
       // still works with bundled Surah/Para metadata; see README.
+    }
+
+    if (!mounted) return;
+
+    // Configure audio session before creating PlayerProvider/AudioPlayer
+    try {
+      final session = await AudioSession.instance;
+      await session.configure(const AudioSessionConfiguration.music()).timeout(_initTimeout);
+    } catch (_) {
+      // Audio session config failed but playback may still work
     }
 
     if (!mounted) return;
