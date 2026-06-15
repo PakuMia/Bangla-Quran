@@ -1,4 +1,5 @@
 import 'package:audio_service/audio_service.dart';
+import 'package:audio_session/audio_session.dart';
 import 'package:flutter/foundation.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -11,7 +12,7 @@ import '../services/playback_storage.dart';
 /// continuously persists the current track + position so playback can
 /// resume exactly where the user left off, even after the app is closed.
 class PlayerProvider extends ChangeNotifier {
-  final AudioPlayer _player = AudioPlayer();
+  late final AudioPlayer _player;
   final PlaybackStorage _storage;
   final DownloadManager _downloadManager;
 
@@ -21,6 +22,9 @@ class PlayerProvider extends ChangeNotifier {
   DateTime _lastSaved = DateTime.fromMillisecondsSinceEpoch(0);
 
   PlayerProvider(this._storage, this._downloadManager) {
+    _player = AudioPlayer();
+    _configureAudioSession();
+
     _player.playerStateStream.listen((_) => notifyListeners());
     _player.processingStateStream.listen((state) {
       if (state == ProcessingState.completed) {
@@ -29,6 +33,14 @@ class PlayerProvider extends ChangeNotifier {
     });
     _player.positionStream.listen((position) {
       _maybeSavePosition(position);
+    });
+  }
+
+  void _configureAudioSession() {
+    AudioSession.instance.then((session) {
+      session.configure(const AudioSessionConfiguration.music()).catchError(
+        (e) => debugPrint('Audio session config failed: $e'),
+      );
     });
   }
 
