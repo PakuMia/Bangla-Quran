@@ -21,16 +21,26 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _init() async {
-    final library = context.read<LibraryService>();
-    final player = context.read<PlayerProvider>();
+    try {
+      final library = context.read<LibraryService>();
+      final player = context.read<PlayerProvider>();
 
-    await library.load();
-    await player.restoreLastSession(library.all);
+      await library.load();
+      await player.restoreLastSession(library.all);
 
-    if (!mounted) return;
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const HomeScreen()),
-    );
+      if (!mounted) return;
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+      );
+    } catch (e) {
+      // If anything fails during init, still navigate to home — the app
+      // will show "not uploaded yet" for all tracks until Firebase/Firestore
+      // is properly configured.
+      if (!mounted) return;
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const HomeScreen()),
+      );
+    }
   }
 
   @override
