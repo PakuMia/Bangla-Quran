@@ -21,7 +21,6 @@ build/
 *.iml
 .vscode/
 
-# Firebase generated config (contains secrets - do not commit)
-**/google-services.json
+# Firebase iOS config (not used yet - this project targets Android)
 **/GoogleService-Info.plist
 lib/firebase_options.dart
