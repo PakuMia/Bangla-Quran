@@ -7,9 +7,14 @@ import '../providers/player_provider.dart';
 import '../services/download_manager.dart';
 import '../theme/app_theme.dart';
 
-class PlayerScreen extends StatelessWidget {
+class PlayerScreen extends StatefulWidget {
   const PlayerScreen({super.key});
 
+  @override
+  State<PlayerScreen> createState() => _PlayerScreenState();
+}
+
+class _PlayerScreenState extends State<PlayerScreen> {
   String _format(Duration d) {
     final hours = d.inHours;
     final minutes = d.inMinutes.remainder(60).toString().padLeft(2, '0');
@@ -22,6 +27,15 @@ class PlayerScreen extends StatelessWidget {
     final player = context.watch<PlayerProvider>();
     final downloads = context.watch<DownloadManager>();
     final track = player.currentTrack;
+
+    if (player.lastError != null) {
+      final error = player.lastError!;
+      player.lastError = null;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error)));
+      });
+    }
 
     if (track == null) {
       return Scaffold(

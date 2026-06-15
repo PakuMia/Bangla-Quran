@@ -21,6 +21,8 @@ class PlayerProvider extends ChangeNotifier {
 
   DateTime _lastSaved = DateTime.fromMillisecondsSinceEpoch(0);
 
+  String? lastError;
+
   PlayerProvider(this._storage, this._downloadManager) {
     _player = AudioPlayer();
     _configureAudioSession();
@@ -68,11 +70,17 @@ class PlayerProvider extends ChangeNotifier {
   Future<void> playTrack(Track track, List<Track> queue, {Duration? startAt}) async {
     _queue = queue;
     currentTrack = track;
+    lastError = null;
     notifyListeners();
 
-    await _setSource(track, startAt: startAt ?? Duration.zero);
-    await _player.play();
-    await _storage.saveSession(track.id, (startAt ?? Duration.zero).inMilliseconds);
+    try {
+      await _setSource(track, startAt: startAt ?? Duration.zero);
+      await _player.play();
+      await _storage.saveSession(track.id, (startAt ?? Duration.zero).inMilliseconds);
+    } catch (e) {
+      lastError = 'অডিও চালানো যাচ্ছে না: $e';
+      notifyListeners();
+    }
   }
 
   Future<void> togglePlayPause() async {
