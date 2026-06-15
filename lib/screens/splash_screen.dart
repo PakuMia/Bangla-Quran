@@ -1,10 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/player_provider.dart';
+import '../services/download_manager.dart';
 import '../services/library_service.dart';
 import '../theme/app_theme.dart';
 import 'home_screen.dart';
+
+const _initTimeout = Duration(seconds: 6);
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -21,26 +26,44 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _init() async {
+    // Must happen before any AudioPlayer is created (PlayerProvider creates
+    // one lazily on first read below).
     try {
-      final library = context.read<LibraryService>();
-      final player = context.read<PlayerProvider>();
-
-      await library.load();
-      await player.restoreLastSession(library.all);
-
-      if (!mounted) return;
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
-      );
-    } catch (e) {
-      // If anything fails during init, still navigate to home — the app
-      // will show "not uploaded yet" for all tracks until Firebase/Firestore
-      // is properly configured.
-      if (!mounted) return;
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
-      );
+      await JustAudioBackground.init(
+        androidNotificationChannelId: 'com.banglaquran.app.audio',
+        androidNotificationChannelName: 'Bangla Quran Playback',
+        androidNotificationOngoing: true,
+      ).timeout(_initTimeout);
+    } catch (_) {
+      // Background-audio notifications may not work, but playback itself
+      // will still function.
     }
+
+    try {
+      await Firebase.initializeApp().timeout(_initTimeout);
+    } catch (_) {
+      // Firebase isn't configured yet (no google-services.json). The app
+      // still works with bundled Surah/Para metadata; see README.
+    }
+
+    if (!mounted) return;
+    final downloadManager = context.read<DownloadManager>();
+    final library = context.read<LibraryService>();
+    final player = context.read<PlayerProvider>();
+
+    try {
+      await downloadManager.init().timeout(_initTimeout);
+    } catch (_) {}
+
+    try {
+      await library.load().timeout(_initTimeout);
+      await player.restoreLastSession(library.all).timeout(_initTimeout);
+    } catch (_) {}
+
+    if (!mounted) return;
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (_) => const HomeScreen()),
+    );
   }
 
   @override

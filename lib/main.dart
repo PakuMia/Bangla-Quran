@@ -1,6 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:just_audio_background/just_audio_background.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/player_provider.dart';
@@ -10,26 +8,14 @@ import 'services/library_service.dart';
 import 'services/playback_storage.dart';
 import 'theme/app_theme.dart';
 
-Future<void> main() async {
+/// Renders the first frame immediately, then SplashScreen performs the
+/// (potentially slow) Firebase/audio-session setup with timeouts so a
+/// misbehaving plugin can never block the UI from showing.
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await JustAudioBackground.init(
-    androidNotificationChannelId: 'com.banglaquran.app.audio',
-    androidNotificationChannelName: 'Bangla Quran Playback',
-    androidNotificationOngoing: true,
-  );
-
-  try {
-    await Firebase.initializeApp();
-  } catch (_) {
-    // Firebase isn't configured yet (no google-services.json / firebase
-    // options). The app still works with the bundled Surah/Para metadata;
-    // see README for enabling remote audio links.
-  }
 
   final storage = PlaybackStorage();
   final downloadManager = DownloadManager(storage);
-  await downloadManager.init();
 
   runApp(
     MultiProvider(
