@@ -15,12 +15,15 @@ class TrackTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final player = context.watch<PlayerProvider>();
-    final downloads = context.watch<DownloadManager>();
-
-    final isCurrent = player.currentTrack?.id == track.id;
-    final progress = downloads.progressFor(track.id);
-    final isDownloaded = downloads.isDownloaded(track.id);
+    final isCurrent = context.select<PlayerProvider, bool>(
+      (player) => player.currentTrack?.id == track.id,
+    );
+    final progress = context.select<DownloadManager, double?>(
+      (downloads) => downloads.progressFor(track.id),
+    );
+    final isDownloaded = context.select<DownloadManager, bool>(
+      (downloads) => downloads.isDownloaded(track.id),
+    );
     final isAvailable = track.audioUrl.isNotEmpty || isDownloaded;
 
     return ListTile(
@@ -49,6 +52,7 @@ class TrackTile extends StatelessWidget {
                 color: isDownloaded ? Colors.redAccent : AppTheme.islamicGreen,
               ),
               onPressed: () {
+                final downloads = context.read<DownloadManager>();
                 if (isDownloaded) {
                   downloads.delete(track);
                 } else if (track.audioUrl.isEmpty) {
@@ -63,7 +67,7 @@ class TrackTile extends StatelessWidget {
           _showUnavailable(context);
           return;
         }
-        player.playTrack(track, queue);
+        context.read<PlayerProvider>().playTrack(track, queue);
         Navigator.of(context).push(MaterialPageRoute(builder: (_) => const PlayerScreen()));
       },
     );

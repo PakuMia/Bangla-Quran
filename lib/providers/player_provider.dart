@@ -11,12 +11,17 @@ import '../services/playback_storage.dart';
 /// Drives audio playback, keeps the current Surah/Para queue, and
 /// continuously persists the current track + position so playback can
 /// resume exactly where the user left off, even after the app is closed.
+///
+/// Playback uses a [ConcatenatingAudioSource] so that just_audio_background
+/// can show working skip-to-next/previous controls on the lock screen, and
+/// so native shuffle/repeat (loop) modes work correctly.
 class PlayerProvider extends ChangeNotifier {
   late final AudioPlayer _player;
   final PlaybackStorage _storage;
   final DownloadManager _downloadManager;
 
   List<Track> _queue = [];
+  List<Track> _playable = [];
   Track? currentTrack;
 
   DateTime _lastSaved = DateTime.fromMillisecondsSinceEpoch(0);
@@ -28,6 +33,9 @@ class PlayerProvider extends ChangeNotifier {
     _configureAudioSession();
 
     _player.playerStateStream.listen((_) => notifyListeners());
+    _player.loopModeStream.listen((_) => notifyListeners());
+    _player.shuffleModeEnabledStream.listen((_) => notifyListeners());
+    _player.speedStream.listen((_) => notifyListeners());
     _player.processingStateStream.listen((state) {
       if (state == ProcessingState.completed) {
         _onTrackCompleted();
@@ -35,6 +43,15 @@ class PlayerProvider extends ChangeNotifier {
     });
     _player.positionStream.listen((position) {
       _maybeSavePosition(position);
+    });
+    _player.currentIndexStream.listen((index) {
+      if (index == null || index >= _playable.length) return;
+      final track = _playable[index];
+      if (currentTrack?.id != track.id) {
+        currentTrack = track;
+        _storage.saveSession(track.id, 0);
+        notifyListeners();
+      }
     });
   }
 
@@ -55,17 +72,12 @@ class PlayerProvider extends ChangeNotifier {
   Stream<Duration?> get durationStream => _player.durationStream;
   Stream<PlayerState> get playerStateStream => _player.playerStateStream;
 
-  bool get hasNext {
-    if (currentTrack == null || _queue.isEmpty) return false;
-    final index = _queue.indexWhere((t) => t.id == currentTrack!.id);
-    return index != -1 && index < _queue.length - 1;
-  }
+  bool get hasNext => _player.hasNext;
+  bool get hasPrevious => _player.hasPrevious;
 
-  bool get hasPrevious {
-    if (currentTrack == null || _queue.isEmpty) return false;
-    final index = _queue.indexWhere((t) => t.id == currentTrack!.id);
-    return index > 0;
-  }
+  bool get shuffleEnabled => _player.shuffleModeEnabled;
+  LoopMode get loopMode => _player.loopMode;
+  double get speed => _player.speed;
 
   Future<void> playTrack(Track track, List<Track> queue, {Duration? startAt}) async {
     _queue = queue;
@@ -74,7 +86,22 @@ class PlayerProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      await _setSource(track, startAt: startAt ?? Duration.zero);
+      _playable = queue
+          .where((t) => t.audioUrl.isNotEmpty || _downloadManager.isDownloaded(t.id))
+          .toList();
+      if (_playable.indexWhere((t) => t.id == track.id) == -1) {
+        _playable = [track, ..._playable];
+      }
+
+      final sources = await Future.wait(_playable.map(_audioSourceFor));
+      final playlist = ConcatenatingAudioSource(children: sources);
+      final initialIndex = _playable.indexWhere((t) => t.id == track.id);
+
+      await _player.setAudioSource(
+        playlist,
+        initialIndex: initialIndex < 0 ? 0 : initialIndex,
+        initialPosition: startAt ?? Duration.zero,
+      );
       await _player.play();
       await _storage.saveSession(track.id, (startAt ?? Duration.zero).inMilliseconds);
     } catch (e) {
@@ -99,15 +126,29 @@ class PlayerProvider extends ChangeNotifier {
   }
 
   Future<void> playNext() async {
-    if (!hasNext) return;
-    final index = _queue.indexWhere((t) => t.id == currentTrack!.id);
-    await playTrack(_queue[index + 1], _queue);
+    await _player.seekToNext();
   }
 
   Future<void> playPrevious() async {
-    if (!hasPrevious) return;
-    final index = _queue.indexWhere((t) => t.id == currentTrack!.id);
-    await playTrack(_queue[index - 1], _queue);
+    await _player.seekToPrevious();
+  }
+
+  /// Cycles repeat mode: off -> repeat all -> repeat one -> off.
+  Future<void> cycleRepeatMode() async {
+    final next = switch (_player.loopMode) {
+      LoopMode.off => LoopMode.all,
+      LoopMode.all => LoopMode.one,
+      LoopMode.one => LoopMode.off,
+    };
+    await _player.setLoopMode(next);
+  }
+
+  Future<void> toggleShuffle() async {
+    await _player.setShuffleModeEnabled(!_player.shuffleModeEnabled);
+  }
+
+  Future<void> setSpeed(double speed) async {
+    await _player.setSpeed(speed);
   }
 
   /// Restores the last played track (and position) on app launch without
@@ -122,22 +163,41 @@ class PlayerProvider extends ChangeNotifier {
     final localPath = await _downloadManager.localPath(track.id);
     if (track.audioUrl.isEmpty && localPath == null) return;
 
-    currentTrack = track;
-    _queue = track.type == PlaylistType.surah
+    final queue = track.type == PlaylistType.surah
         ? allTracks.where((t) => t.type == PlaylistType.surah).toList()
         : allTracks.where((t) => t.type == PlaylistType.para).toList();
 
-    await _setSource(track, startAt: Duration(milliseconds: session.positionMs), play: false);
+    _queue = queue;
+    currentTrack = track;
+    try {
+      _playable = queue
+          .where((t) => t.audioUrl.isNotEmpty || _downloadManager.isDownloaded(t.id))
+          .toList();
+      if (_playable.indexWhere((t) => t.id == track.id) == -1) {
+        _playable = [track, ..._playable];
+      }
+
+      final sources = await Future.wait(_playable.map(_audioSourceFor));
+      final playlist = ConcatenatingAudioSource(children: sources);
+      final initialIndex = _playable.indexWhere((t) => t.id == track.id);
+
+      await _player.setAudioSource(
+        playlist,
+        initialIndex: initialIndex < 0 ? 0 : initialIndex,
+        initialPosition: Duration(milliseconds: session.positionMs),
+      );
+    } catch (_) {
+      // Couldn't restore the previous source (e.g. no network); the user
+      // can still browse and pick a track to play.
+    }
     notifyListeners();
   }
 
-  Future<void> _setSource(Track track, {Duration startAt = Duration.zero, bool play = true}) async {
+  Future<AudioSource> _audioSourceFor(Track track) async {
     final localPath = await _downloadManager.localPath(track.id);
-    final source = localPath != null
+    return localPath != null
         ? AudioSource.uri(Uri.file(localPath), tag: _mediaItem(track))
         : AudioSource.uri(Uri.parse(track.audioUrl), tag: _mediaItem(track));
-
-    await _player.setAudioSource(source, initialPosition: startAt);
   }
 
   MediaItem _mediaItem(Track track) => MediaItem(
@@ -148,9 +208,7 @@ class PlayerProvider extends ChangeNotifier {
       );
 
   void _onTrackCompleted() {
-    if (hasNext) {
-      playNext();
-    } else if (currentTrack != null) {
+    if (currentTrack != null && !hasNext && _player.loopMode == LoopMode.off) {
       _storage.saveSession(currentTrack!.id, 0);
     }
   }

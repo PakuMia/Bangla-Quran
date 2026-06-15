@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/playlist_type.dart';
+import '../widgets/app_drawer.dart';
 import '../widgets/mini_player.dart';
 import 'downloads_screen.dart';
 import 'playlist_screen.dart';
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Bangla Quran')),
+      drawer: const AppDrawer(),
       body: Column(
         children: [
           Expanded(child: IndexedStack(index: _index, children: pages)),

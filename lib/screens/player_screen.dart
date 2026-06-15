@@ -6,6 +6,7 @@ import '../models/playlist_type.dart';
 import '../providers/player_provider.dart';
 import '../services/download_manager.dart';
 import '../theme/app_theme.dart';
+import '../widgets/queue_sheet.dart';
 
 class PlayerScreen extends StatefulWidget {
   const PlayerScreen({super.key});
@@ -50,6 +51,17 @@ class _PlayerScreenState extends State<PlayerScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(track.type == PlaylistType.surah ? 'সূরা প্লেয়ার' : 'পারা প্লেয়ার'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.queue_music_rounded),
+            tooltip: 'প্লেলিস্ট',
+            onPressed: () => showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              builder: (_) => const QueueSheet(),
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Padding(
@@ -159,7 +171,55 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.shuffle_rounded,
+                      color: player.shuffleEnabled ? AppTheme.islamicGreen : Colors.grey,
+                    ),
+                    tooltip: 'শাফল',
+                    onPressed: player.toggleShuffle,
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      switch (player.loopMode) {
+                        LoopMode.one => Icons.repeat_one_rounded,
+                        LoopMode.all => Icons.repeat_rounded,
+                        LoopMode.off => Icons.repeat_rounded,
+                      },
+                      color: player.loopMode == LoopMode.off ? Colors.grey : AppTheme.islamicGreen,
+                    ),
+                    tooltip: 'রিপিট',
+                    onPressed: player.cycleRepeatMode,
+                  ),
+                  PopupMenuButton<double>(
+                    tooltip: 'গতি',
+                    initialValue: player.speed,
+                    onSelected: player.setSpeed,
+                    itemBuilder: (context) => const [
+                      PopupMenuItem(value: 0.75, child: Text('0.75x')),
+                      PopupMenuItem(value: 1.0, child: Text('1.0x')),
+                      PopupMenuItem(value: 1.25, child: Text('1.25x')),
+                      PopupMenuItem(value: 1.5, child: Text('1.5x')),
+                      PopupMenuItem(value: 2.0, child: Text('2.0x')),
+                    ],
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      child: Text(
+                        '${player.speed.toStringAsFixed(2)}x',
+                        style: const TextStyle(
+                          color: AppTheme.islamicGreen,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
               if (downloadProgress != null)
                 Column(
                   children: [

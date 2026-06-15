@@ -33,10 +33,14 @@ dependencies:
   # Downloads
   dio: ^5.4.3+1
 
+  # Opening external links (YouTube channel, social links)
+  url_launcher: ^6.3.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.14.1
 
 flutter:
   uses-material-design: true
@@ -44,3 +48,7 @@ flutter:
   assets:
     - assets/data/surahs.json
     - assets/data/paras.json
+
+flutter_launcher_icons:
+  android: true
+  image_path: "assets/icon/icon.png"
