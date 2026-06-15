@@ -13,7 +13,7 @@ class AppDrawer extends StatelessWidget {
     _DrawerLink(
       icon: Icons.smart_display_rounded,
       label: 'YouTube চ্যানেল',
-      url: 'https://www.youtube.com/@BanglaQuran',
+      url: 'https://www.youtube.com/@BanglaQuranOfficial',
     ),
     _DrawerLink(
       icon: Icons.share_rounded,
