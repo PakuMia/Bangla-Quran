@@ -48,6 +48,7 @@ flutter:
   assets:
     - assets/data/surahs.json
     - assets/data/paras.json
+    - assets/data/asma_ul_husna.json
 
 flutter_launcher_icons:
   android: true

@@ -4,6 +4,7 @@ import '../models/playlist_type.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/mini_player.dart';
 import 'downloads_screen.dart';
+import 'names_screen.dart';
 import 'playlist_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const pages = [
       PlaylistScreen(type: PlaylistType.surah),
       PlaylistScreen(type: PlaylistType.para),
+      NamesScreen(),
       DownloadsScreen(),
     ];
 
@@ -39,6 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: 'সূরা'),
           BottomNavigationBarItem(icon: Icon(Icons.collections_bookmark), label: 'পারা'),
+          BottomNavigationBarItem(icon: Icon(Icons.star_rounded), label: '৯৯ নাম'),
           BottomNavigationBarItem(icon: Icon(Icons.download_done), label: 'ডাউনলোড'),
         ],
       ),

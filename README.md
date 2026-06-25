@@ -5,6 +5,7 @@ Bengali-translation recitation of the Holy Qur'an, organized into:
 
 - **সূরা প্লেলিস্ট (Surah Playlist)** – all 114 Surahs
 - **পারা প্লেলিস্ট (Para Playlist)** – all 30 Paras (Juz)
+- **৯৯ নাম (Asma ul Husna)** – Allah's 99 Beautiful Names with Arabic, transliteration, and Bengali meaning, with search
 - **ডাউনলোড (Downloads)** – offline listening
 
 Theme color: **Islamic Green** (`#0E6B3A`). Playback resumes automatically
