@@ -8,6 +8,9 @@ on:
       - 'tafseer/**'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build APK
@@ -38,18 +41,30 @@ jobs:
         working-directory: tafseer
         run: flutter build apk --release --no-tree-shake-icons
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: tafseer-ibn-kaseer-apk
           path: tafseer/build/app/outputs/flutter-apk/app-release.apk
           retention-days: 30
 
-      - name: Show APK info
-        run: |
-          APK=tafseer/build/app/outputs/flutter-apk/app-release.apk
-          if [ -f "$APK" ]; then
-            SIZE=$(du -sh "$APK" | cut -f1)
-            echo "✅ APK তৈরি সফল হয়েছে"
-            echo "📦 ফাইলের সাইজ: $SIZE"
-          fi
+      - name: Create or update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: tafseer-latest
+          name: তাফসীর ইবনে কাসীর - সর্বশেষ বিল্ড
+          body: |
+            ## তাফসীর ইবনে কাসীর APK
+
+            নিচের লিংক থেকে APK ডাউনলোড করুন এবং Android ফোনে ইনস্টল করুন।
+
+            **ফিচার:**
+            - ১১৪টি সূরা তালিকা
+            - PDF রিডার (নিজের PDF লিংক দিয়ে পড়া যাবে)
+            - বুকমার্ক সিস্টেম
+            - সর্বশেষ পঠিত মনে রাখে
+            - পৃষ্ঠায় যাওয়ার অপশন
+            - ডার্ক ও লাইট মোড
+          files: tafseer/build/app/outputs/flutter-apk/app-release.apk
+          make_latest: true
+          prerelease: false
