@@ -1,4 +1,4 @@
-# Flutter/Dart
+# Flutter/Dart (root project)
 .dart_tool/
 .flutter-plugin-dependencies
 .flutter-plugins
@@ -24,3 +24,12 @@ build/
 # Firebase iOS config (not used yet - this project targets Android)
 **/GoogleService-Info.plist
 lib/firebase_options.dart
+
+# Tafseer sub-project generated files
+tafseer/.dart_tool/
+tafseer/.flutter-plugins
+tafseer/.flutter-plugins-dependencies
+tafseer/.flutter-plugin-dependencies
+tafseer/build/
+tafseer/.packages
+tafseer/pubspec.lock
