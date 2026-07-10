@@ -13,14 +13,18 @@ class AppProvider extends ChangeNotifier {
   List<Bookmark> _bookmarks = [];
   String _searchQuery = '';
   bool _loaded = false;
+  String _pdfSource = '';
 
-  AppProvider(this._storage) : _isDark = _storage.isDarkMode;
+  AppProvider(this._storage)
+      : _isDark = _storage.isDarkMode,
+        _pdfSource = _storage.pdfUrl;
 
   bool get isDark => _isDark;
   List<SurahInfo> get surahs => _surahs;
   List<Bookmark> get bookmarks => _bookmarks;
   bool get loaded => _loaded;
   int? get lastOpenedSurah => _storage.lastOpenedSurah;
+  String get pdfSource => _pdfSource;
 
   List<SurahInfo> get filteredSurahs {
     if (_searchQuery.isEmpty) return _surahs;
@@ -83,6 +87,12 @@ class AppProvider extends ChangeNotifier {
   Future<void> removeBookmark(int surahNumber, int page) async {
     await _storage.removeBookmark(surahNumber, page);
     _bookmarks = _storage.bookmarks;
+    notifyListeners();
+  }
+
+  Future<void> setPdfSource(String source) async {
+    await _storage.setPdfUrl(source);
+    _pdfSource = source;
     notifyListeners();
   }
 }

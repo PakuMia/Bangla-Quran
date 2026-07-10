@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
@@ -54,11 +55,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
     final isDark = provider.isDark;
     final bookmarked = provider.isBookmarked(widget.surah.number, _currentPage);
     final subtext = isDark ? const Color(0xFF66747f) : const Color(0xFF888888);
-
-    // PDF URL — user configures once in settings
-    // Using a public sample PDF for demo; replace with actual Ibn Kaseer PDF URL
-    const pdfUrl = 'https://www.w3.org/WAI/WCAG21/Techniques/pdf/dummy.pdf';
-    // In production, fetch the actual tafseer PDF URL from config
+    final pdfSource = provider.pdfSource;
 
     return Scaffold(
       appBar: AppBar(
@@ -85,7 +82,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
       body: Column(
         children: [
           _buildToolbar(context, subtext),
-          Expanded(child: _buildPdfView(pdfUrl, isDark)),
+          Expanded(child: _buildPdfView(pdfSource, isDark)),
           _buildBottomBar(context, subtext, bookmarked),
         ],
       ),
@@ -122,34 +119,53 @@ class _ReaderScreenState extends State<ReaderScreen> {
     );
   }
 
-  Widget _buildPdfView(String pdfUrl, bool isDark) {
-    if (pdfUrl.isEmpty || pdfUrl.contains('dummy')) {
+  Widget _buildPdfView(String pdfSource, bool isDark) {
+    if (pdfSource.isEmpty) {
       return _NoPdfPlaceholder(surahName: widget.surah.name);
     }
 
+    final isLocalFile = pdfSource.startsWith('/');
+
+    void onPageChanged(PdfPageChangedDetails details) {
+      setState(() => _currentPage = details.newPageNumber);
+      context.read<AppProvider>().saveLastPage(
+            widget.surah.number,
+            details.newPageNumber,
+          );
+    }
+
+    void onDocumentLoaded(PdfDocumentLoadedDetails details) {
+      setState(() => _totalPages = details.document.pages.count);
+    }
+
+    void onLoadFailed(PdfDocumentLoadFailedDetails details) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('PDF লোড হয়নি: ${details.description}')),
+      );
+    }
+
+    if (isLocalFile) {
+      return SfPdfViewer.file(
+        File(pdfSource),
+        controller: _pdfController,
+        initialPageNumber: _currentPage,
+        enableDoubleTapZooming: true,
+        pageLayoutMode: PdfPageLayoutMode.single,
+        onPageChanged: onPageChanged,
+        onDocumentLoaded: onDocumentLoaded,
+        onDocumentLoadFailed: onLoadFailed,
+      );
+    }
+
     return SfPdfViewer.network(
-      pdfUrl,
+      pdfSource,
       controller: _pdfController,
       initialPageNumber: _currentPage,
       enableDoubleTapZooming: true,
       pageLayoutMode: PdfPageLayoutMode.single,
-      onPageChanged: (details) {
-        setState(() => _currentPage = details.newPageNumber);
-        context.read<AppProvider>().saveLastPage(
-              widget.surah.number,
-              details.newPageNumber,
-            );
-      },
-      onDocumentLoaded: (details) {
-        setState(() {
-          _totalPages = details.document.pages.count;
-        });
-      },
-      onDocumentLoadFailed: (details) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('PDF লোড হয়নি: ${details.description}')),
-        );
-      },
+      onPageChanged: onPageChanged,
+      onDocumentLoaded: onDocumentLoaded,
+      onDocumentLoadFailed: onLoadFailed,
     );
   }
 
@@ -254,7 +270,7 @@ class _NoPdfPlaceholder extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             Text(
-              'তাফসীর PDF এখনো সেট করা হয়নি।\nনিচের বাটন দিয়ে PDF-এর লিংক দিন।',
+              'তাফসীর PDF এখনো সেট করা হয়নি।\nফোন থেকে PDF বেছে নিন বা লিংক দিন।',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
