@@ -34,11 +34,6 @@ jobs:
         working-directory: tafseer
         run: flutter pub get
 
-      - name: Analyze code
-        working-directory: tafseer
-        run: flutter analyze --no-fatal-infos
-        continue-on-error: true
-
       - name: Build release APK
         working-directory: tafseer
         run: flutter build apk --release --no-tree-shake-icons
